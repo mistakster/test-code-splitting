@@ -40,15 +40,17 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
-			minChunks: module => {
-				return module.context && module.context.indexOf('node_modules') !== -1;
-			},
+			minChunks: module => (
+				module.context &&
+				module.context.indexOf('node_modules') !== -1
+			),
 			async: 'vendor'
 		}),
 		new webpack.optimize.CommonsChunkPlugin({
-			minChunks: module => {
-				return module.context && module.context.indexOf('jquery') !== -1;
-			},
+			minChunks: module => (
+				module.context &&
+				module.context.indexOf('jquery') !== -1
+			),
 			async: 'jquery'
 		})
 	]
